@@ -22,6 +22,9 @@ class MainViewModel: ViewModel() {
     private val isLoading = MutableLiveData<Boolean>()
     val getIsLoading: LiveData<Boolean> = isLoading
 
+    private val _isError = MutableLiveData<Boolean>()
+    val isError: LiveData<Boolean> = _isError
+
     init {
         getListPokemon()
     }
@@ -42,7 +45,9 @@ class MainViewModel: ViewModel() {
 
                 override fun onFailure(p0: Call<PokemonResponse>, t: Throwable) {
                     isLoading.value = false
+                    _isError.value = true
                     Log.e(TAG, "onFailure: ${t.message.toString()}")
+
                 }
 
             })

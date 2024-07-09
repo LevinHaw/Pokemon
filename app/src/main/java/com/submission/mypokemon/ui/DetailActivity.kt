@@ -3,6 +3,7 @@ package com.submission.mypokemon.ui
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -48,6 +49,11 @@ class DetailActivity : AppCompatActivity() {
 
         detailViewModel.detailPokemon.observe(this) { detailPokemon ->
             setDetailPokemon(detailPokemon)
+        }
+
+        detailViewModel.isError.observe(this){
+            Toast.makeText(this, "Cannot retrieve detail pokemon", Toast.LENGTH_SHORT)
+                .show()
         }
     }
 

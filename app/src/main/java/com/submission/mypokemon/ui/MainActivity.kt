@@ -2,6 +2,7 @@ package com.submission.mypokemon.ui
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -44,6 +45,11 @@ class MainActivity : AppCompatActivity() {
 
         mainViewModel.getListPokemon.observe(this) { items ->
             setListPokemon(items)
+        }
+
+        mainViewModel.isError.observe(this){
+            Toast.makeText(this, "Cannot retrieve pokemon list", Toast.LENGTH_SHORT)
+                .show()
         }
     }
 

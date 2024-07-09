@@ -18,6 +18,9 @@ class DetailViewModel: ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
+    private val _isError = MutableLiveData<Boolean>()
+    val isError: LiveData<Boolean> = _isError
+
     fun setDetailPokemon(detailPokemonName: String) {
         DETAILPOKEMON_ID = detailPokemonName
         findDetailPokemonResponse()
@@ -42,6 +45,7 @@ class DetailViewModel: ViewModel() {
 
             override fun onFailure(call: Call<DetailResponse>, t: Throwable) {
                 _isLoading.value = false
+                _isError.value = true
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
         })
