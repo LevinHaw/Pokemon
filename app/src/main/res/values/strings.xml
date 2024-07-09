@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">My Pokemon</string>
+    <string name="my_pokemon">Pokemon List</string>
+    <string name="pokemon_name">Pokemon name</string>
+    <string name="pokemon_ability">Pokemon Ability</string>
+    <string name="pokemon_stats">Pokemon Stats</string>
+    <string name="stats">Stats</string>
+</resources>
